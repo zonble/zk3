@@ -1,2 +1,7 @@
 site_name: 防區狀況三生效－驗證精實案
-theme: readthedocs
+theme: 
+  name: readthedocs
+  locale: 'zh_TW'
+extra:
+  search:
+    language: 'jp'
