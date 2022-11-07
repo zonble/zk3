@@ -13,6 +13,9 @@ theme:
   features:
     - navigation.sections
     - navigation.tracking
+plugins:
+  - social:
+      cards_font: Noto Sans TC
 extra:
   search:
     language: 'jp'
