@@ -18,4 +18,5 @@ jobs:
       - run: pip install mkdocs
       - run: pip install mkdocs-material
       - run: pip install pillow cairosvg
+      - run: pip install mkdocs-with-pdf
       - run: mkdocs gh-deploy --force --clean --verbose

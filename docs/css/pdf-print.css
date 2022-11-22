@@ -1,0 +1,44 @@
+
+@media print {
+    hr {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+    }
+
+    p {
+        font-size: 12pt;
+    }
+
+    li {
+        font-size: 12pt;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    h1 {
+        font-size: 26pt;
+    }
+
+    h2 {
+        font-size: 20pt;
+    }
+
+    h3 {
+        font-size: 18pt;
+    }
+
+    h4 {
+        font-size: 16pt;
+    }
+
+    h5 {
+        font-size: 14pt;
+    }
+
+
+}

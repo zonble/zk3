@@ -13,9 +13,17 @@ theme:
   features:
     - navigation.sections
     - navigation.tracking
+
 plugins:
   - social:
       cards_font: Noto Sans TC
+  - with-pdf:
+      two_columns_level: 2
+      author: 楊維中
+
+extra_css:
+    - css/extra.css
+    - css/pdf-print.css
 extra:
   search:
     language: 'jp'
