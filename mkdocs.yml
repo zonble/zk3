@@ -18,8 +18,12 @@ plugins:
   - social:
       cards_font: Noto Sans TC
   - with-pdf:
-      two_columns_level: 2
-      author: 楊維中
+      two_columns_level: 3
+      copyright: 2022 © 楊維中
+      author: 楊維中 a.k.a zonble
+      cover_subtitle: 2022 修訂版本
+      toc_title: 目錄
+      output_path: zk3.pdf
 
 extra_css:
     - css/extra.css
