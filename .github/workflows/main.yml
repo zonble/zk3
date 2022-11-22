@@ -15,9 +15,9 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
+      - run: sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-ipafont-mincho fonts-ipafont-gothic fonts-unfonts-core
       - run: pip install mkdocs
       - run: pip install mkdocs-material
       - run: pip install pillow cairosvg
       - run: pip install mkdocs-with-pdf
-      - run: apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-ipafont-mincho fonts-ipafont-gothic fonts-unfonts-core
       - run: mkdocs gh-deploy --force --clean --verbose
