@@ -1,1 +1,5 @@
 .cache/
+site
+~$*
+tmp.md
+*.docx
