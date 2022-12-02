@@ -15,8 +15,19 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-ipafont-mincho fonts-ipafont-gothic fonts-unfonts-core
+      - name: SetLocale
+        run: |
+                sudo apt-get update && sudo apt-get install tzdata locales -y && sudo locale-gen zh_TW.UTF-8
+                sudo localectl set-locale LANG="zh_TW.UTF-8"
+                export LANG="zh_TW.UTF-8"
+                sudo update-locale
+                locale -a
+                locale
+                locale -c -k LC_NUMERIC
+                localectl status
+      - run: sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-moe-standard-song fonts-moe-standard-kai
       - run: sudo apt-get install fonts-noto
+      - run: sudo fc-cache -f -v
       - run: pip install mkdocs
       - run: pip install mkdocs-material
       - run: pip install pillow cairosvg
