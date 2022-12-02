@@ -26,7 +26,7 @@ jobs:
                 locale -c -k LC_NUMERIC
                 localectl status
       - run: sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-moe-standard-song fonts-moe-standard-kai
-      - run: sudo apt-get install fonts-noto
+      - run: sudo apt-get install fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-cjk-extra
       - run: sudo fc-cache -f -v
       - run: pip install mkdocs
       - run: pip install mkdocs-material
