@@ -1,7 +1,7 @@
-site_name: 防區狀況三生效－驗證精實案
+site_name: 防區狀況三生效－驗證精實案 2022 修訂版
 site_url: https://zonble.github.io/zk3/
 repo_url: https://github.com/zonble/zk3
-site_description:  防區狀況三生效－驗證精實案 2022 修訂版本
+site_description:  …防區狀況三即將生效，目的就是要驗證精實案後，防區各部隊已經成為量小、質精、戰力強的新一代鋼鐵勁旅。
 site_author: 楊維中 a.k.a zonble
 theme: 
   name: material
@@ -18,9 +18,9 @@ plugins:
   - social:
       cards_font: Noto Sans TC
   - with-pdf:
-      copyright: 2022 © 楊維中
+      copyright: 2022 © 楊維中 a.k.a zonble
       author: 楊維中 a.k.a zonble
-      cover_subtitle: 2022 修訂版本
+      cover_subtitle: …防區狀況三即將生效，目的就是要驗證精實案後，防區各部隊已經成為量小、質精、戰力強的新一代鋼鐵勁旅。
       toc_title: 目錄
       output_path: zk3.pdf
 
