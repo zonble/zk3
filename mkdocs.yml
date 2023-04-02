@@ -25,7 +25,7 @@ plugins:
       cards_font: Noto Sans TC
   - pandoc:
       combined: true
-      combined_output_path: zk3.odt
+      combined_output_path: zk3.epub
       pandoc_args:
   # - offline
   # - search
@@ -74,4 +74,4 @@ nav:
   - "其他版本":
       - "EPUB 版本": https://zonble.github.io/zk3/zk3.epub
       - "PDF 版本": https://zonble.github.io/zk3/zk3.pdf
-      - "MS Word 版本": https://zonble.github.io/zk3/zk3.docx
+      # - "MS Word 版本": https://zonble.github.io/zk3/zk3.docx

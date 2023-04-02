@@ -41,9 +41,9 @@ jobs:
           pip install mkdocs-pandoc-plugin
       - name: Build book
         run: export LANG="zh_TW.UTF-8"; mkdocs build --clean --verbose
-      - name: Build word file
-        run: cd site; pandoc pandoc/combined.pdf.md -f markdown_strict -o zk3.docx --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
-      - name: Build epub file
-        run: cd site; pandoc pandoc/combined.pdf.md -f markdown_strict -o zk3.epub --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
+      # - name: Build word file
+      #   run: cd site; pandoc pandoc/combined.pdf.md -f markdown_strict -o zk3.docx --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
+      # - name: Build epub file
+      #   run: cd site; pandoc pandoc/combined.pdf.md -f markdown_strict -o zk3.epub --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
       - name: Deploy
         run: mkdocs gh-deploy --force --dirty --verbose
