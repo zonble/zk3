@@ -26,7 +26,7 @@ jobs:
           brew install weasyprint
           brew install pandoc
           brew tap homebrew/cask
-          brew install --cask install xelatex
+          brew install --cask xelatex
       - name: Install Python packages
         run: |
           pip install pillow cairosvg
