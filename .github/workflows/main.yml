@@ -8,9 +8,9 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
+      # - uses: actions/setup-python@v4
+      #   with:
+      #     python-version: "3.11"
       - uses: actions/cache@v2
         with:
           key: ${{ github.ref }}
@@ -23,6 +23,7 @@ jobs:
           locale -c -k LC_NUMERIC
       - name: Install dependencies
         run: |
+          brew install weasyprint
           brew install pandoc
           brew install pango
       - name: Install Python packages
