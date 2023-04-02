@@ -29,7 +29,7 @@ jobs:
         run: |
           sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-moe-standard-song fonts-moe-standard-kai
           sudo apt-get install fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-cjk-extra
-          sudo apt-get install fonts-droid
+          sudo apt-get install fonts-droid-fallback
           sudo apt-get install pandoc
           sudo fc-cache -f -v
       - name: Install Python packages
