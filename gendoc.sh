@@ -84,11 +84,11 @@ pandoc \
     tmp.md \
     -o ../site/zk3.epub
 
-pandoc \
-    -f markdown+hard_line_breaks \
-    --metadata title="防區狀況三生效—驗證精實案" --metadata author="楊維中" \
-    --standalone \
-    --pdf-engine=xelatex \
-    --toc \
-    tmp.md \
-    -o ../site/zk3.pdf
+# pandoc \
+#     -f markdown+hard_line_breaks \
+#     --metadata title="防區狀況三生效—驗證精實案" --metadata author="楊維中" \
+#     --standalone \
+#     --pdf-engine=xelatex \
+#     --toc \
+#     tmp.md \
+#     -o ../site/zk3.pdf
