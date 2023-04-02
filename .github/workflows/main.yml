@@ -15,21 +15,31 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - name: SetLocale
+      - name: SetLocale to zh_TW.UTF-8
         run: |
-                sudo apt-get update && sudo apt-get install tzdata locales -y && sudo locale-gen zh_TW.UTF-8
-                sudo localectl set-locale LANG="zh_TW.UTF-8"
-                export LANG="zh_TW.UTF-8"
-                sudo update-locale
-                locale -a
-                locale
-                locale -c -k LC_NUMERIC
-                localectl status
-      - run: sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-moe-standard-song fonts-moe-standard-kai
-      - run: sudo apt-get install fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-cjk-extra
-      - run: sudo fc-cache -f -v
-      - run: pip install mkdocs
-      - run: pip install mkdocs-material
-      - run: pip install pillow cairosvg
-      - run: pip install mkdocs-with-pdf
-      - run: mkdocs gh-deploy --force --clean --verbose
+          sudo apt-get update && sudo apt-get install tzdata locales -y && sudo locale-gen zh_TW.UTF-8
+          sudo localectl set-locale LANG="zh_TW.UTF-8"
+          export LANG="zh_TW.UTF-8"
+          sudo update-locale
+          locale -a
+          locale
+          locale -c -k LC_NUMERIC
+          localectl status
+      - name: Install dependencies
+        run: |
+          sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-moe-standard-song fonts-moe-standard-kai
+          sudo apt-get install fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-cjk-extra
+          sudo apt-get install fonts-droid
+          sudo apt-get install pandoc
+          sudo fc-cache -f -v
+      - name: Install Python packages
+        run: |
+          pip install mkdocs
+          pip install mkdocs-material
+          pip install pillow cairosvg
+          pip install mkdocs-with-pdf
+          pip install mkdocs-pandoc-plugin
+      - run: mkdocs build
+      - run: cd site; pandoc pandoc/combined.pdf.md -o zk3.docx --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
+      - run: cd site; pandoc pandoc/combined.pdf.md -o zk3.epub --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
+      - run: mkdocs gh-deploy --force --dirty --verbose
