@@ -5,7 +5,7 @@ on:
       - master
 jobs:
   deploy:
-    runs-on: macos-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -17,13 +17,20 @@ jobs:
           path: .cache
       - name: SetLocale to zh_TW.UTF-8
         run: |
+          sudo apt-get update && sudo apt-get install tzdata locales -y && sudo locale-gen zh_TW.UTF-8
+          sudo localectl set-locale LANG="zh_TW.UTF-8"
           export LANG="zh_TW.UTF-8"
+          sudo update-locale
           locale -a
           locale
           locale -c -k LC_NUMERIC
+          localectl status
       - name: Install dependencies
         run: |
-          brew install pandoc
+          sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-moe-standard-song fonts-moe-standard-kai
+          sudo apt-get install fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-cjk-extra
+          sudo apt-get install pandoc
+          sudo fc-cache -f -v
       - name: Install Python packages
         run: |
           pip install pillow cairosvg
