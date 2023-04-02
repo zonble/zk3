@@ -26,10 +26,7 @@ jobs:
           brew install weasyprint
           brew install pandoc
           brew tap homebrew/cask
-          brew install --cask basictex
-          eval "$(/usr/libexec/path_helper)"
-          sudo tlmgr update --self
-          ln -s -v /Library/TeX/texbin/pdflatex /usr/local/bin/pdflatex
+          brew cask install xelatex
       - name: Install Python packages
         run: |
           pip install pillow cairosvg
