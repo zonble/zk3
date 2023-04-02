@@ -24,6 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           brew install pandoc
+          brew install pango
       - name: Install Python packages
         run: |
           pip install pillow cairosvg
