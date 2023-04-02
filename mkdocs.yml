@@ -13,12 +13,11 @@ theme:
   features:
     - navigation.sections
     - navigation.tracking
-
 plugins:
   - with-pdf:
-      copyright: 2022 © 楊維中 a.k.a zonble 版權所有
+      # copyright: 2022 © 楊維中 a.k.a zonble
       author: 楊維中 a.k.a zonble
-      cover_subtitle: …防區狀況三即將生效，目的就是要驗證精實案後，防區各部隊已經成為量小、質精、戰力強的新一代鋼鐵勁旅。
+      # cover_subtitle: …防區狀況三即將生效，目的就是要驗證精實案後，防區各部隊已經成為量小、質精、戰力強的新一代鋼鐵勁旅。
       toc_title: 目錄
       output_path: zk3.pdf
   - social:
@@ -65,7 +64,6 @@ nav:
       - "-2.md"
   - "附錄":
       - "22.md"
-  - "其他版本":
-      - "EPUB 版本": https://zonble.github.io/zk3/zk3.epub
-      - "PDF 版本": https://zonble.github.io/zk3/zk3.pdf
-      # - "MS Word 版本": https://zonble.github.io/zk3/zk3.docx
+  - "EPUB 版本": https://zonble.github.io/zk3/zk3.epub
+  - "PDF 版本": https://zonble.github.io/zk3/zk3.pdf
+  - "MS Word 版本": https://zonble.github.io/zk3/zk3.docx
