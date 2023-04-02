@@ -25,6 +25,8 @@ plugins:
       cards_font: Noto Sans TC
   - pandoc:
       combined: true
+      combined_output_path: zk3.md
+      pandoc_args:
   # - offline
   # - search
 
