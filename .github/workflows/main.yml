@@ -29,7 +29,6 @@ jobs:
         run: |
           sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-moe-standard-song fonts-moe-standard-kai
           sudo apt-get install fonts-noto fonts-noto-cjk fonts-noto-color-emoji fonts-noto-cjk-extra
-          # sudo apt-get install fonts-droid-fallback
           sudo apt-get install pandoc
           sudo fc-cache -f -v
       - name: Install Python packages
@@ -38,12 +37,10 @@ jobs:
           pip install mkdocs
           pip install mkdocs-material
           pip install mkdocs-with-pdf
-          pip install mkdocs-pandoc-plugin
+          pip install git+https://github.com/pandocker/pandoc-docx-pagebreak-py
       - name: Build book
         run: export LANG="zh_TW.UTF-8"; mkdocs build --clean --verbose
-      # - name: Build word file
-      #   run: cd site; pandoc pandoc/combined.pdf.md -f markdown_strict -o zk3.docx --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
-      # - name: Build epub file
-      #   run: cd site; pandoc pandoc/combined.pdf.md -f markdown_strict -o zk3.epub --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
+      - name: Build book
+        run: export LANG="zh_TW.UTF-8"; sh gendoc.sh
       - name: Deploy
         run: mkdocs gh-deploy --force --dirty --verbose
