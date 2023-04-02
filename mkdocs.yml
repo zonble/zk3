@@ -69,4 +69,7 @@ nav:
       - "-2.md"
   - "附錄":
       - "22.md"
-  - "PDF 版本": https://zonble.github.io/zk3/zk3.pdf
+  - "其他版本":
+      - "EPUB 版本": https://zonble.github.io/zk3/zk3.epub
+      - "PDF 版本": https://zonble.github.io/zk3/zk3.pdf
+      - "MS Word 版本": https://zonble.github.io/zk3/zk3.docx

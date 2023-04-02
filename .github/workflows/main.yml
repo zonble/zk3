@@ -39,7 +39,11 @@ jobs:
           pip install pillow cairosvg
           pip install mkdocs-with-pdf
           pip install mkdocs-pandoc-plugin
-      - run: mkdocs build
-      - run: cd site; pandoc pandoc/combined.pdf.md -o zk3.docx --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
-      - run: cd site; pandoc pandoc/combined.pdf.md -o zk3.epub --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
-      - run: mkdocs gh-deploy --force --dirty --verbose
+      - name: Build book
+        run: mkdocs build --clean --verbose
+      - name: Build word file
+        run: cd site; pandoc pandoc/combined.pdf.md -f markdown_strict -o zk3.docx --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
+      - name: Build epub file
+        run: cd site; pandoc pandoc/combined.pdf.md -f markdown_strict -o zk3.epub --metadata title="防區狀況三生效—驗證精實案" --metadata lang="zh-TW" --metadata author="楊維中" --toc
+      - name: Deploy
+        run: mkdocs gh-deploy --force --dirty --verbose
