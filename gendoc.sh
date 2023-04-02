@@ -83,3 +83,11 @@ pandoc \
     --toc \
     tmp.md \
     -o ../site/zk3.epub
+
+pandoc \
+    -f markdown+hard_line_breaks \
+    --metadata title="防區狀況三生效—驗證精實案" --metadata author="楊維中" \
+    --standalone \
+    --toc \
+    tmp.md \
+    -o ../site/zk3.pdf
