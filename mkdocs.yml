@@ -5,7 +5,7 @@ site_description: …防區狀況三即將生效，目的就是要驗證精實�
 site_author: 楊維中 a.k.a zonble
 theme:
   name: material
-  locale: "zh_TW"
+  locale: "zh"
   custom_dir: custom_theme/
   palette:
     primary: blue grey
@@ -15,17 +15,17 @@ theme:
     - navigation.tracking
 
 plugins:
-  - social:
-      cards_font: Noto Sans TC
   - with-pdf:
       copyright: 2022 © 楊維中 a.k.a zonble
       author: 楊維中 a.k.a zonble
       cover_subtitle: …防區狀況三即將生效，目的就是要驗證精實案後，防區各部隊已經成為量小、質精、戰力強的新一代鋼鐵勁旅。
       toc_title: 目錄
       output_path: zk3.pdf
+  - social:
+      cards_font: Noto Sans TC
   - pandoc:
       combined: true
-  - offline
+  # - offline
   # - search
 
 extra_css:
