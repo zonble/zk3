@@ -23,10 +23,10 @@ jobs:
           locale -c -k LC_NUMERIC
       - name: Install dependencies
         run: |
-          brew install weasyprint
-          brew install pandoc
-          brew tap homebrew/cask
-          brew install --cask install xelatex
+          # brew install weasyprint
+          brew install pandoc          
+          # brew tap homebrew/cask
+          # brew install --cask install xelatex
       - name: Install Python packages
         run: |
           pip install pillow cairosvg
