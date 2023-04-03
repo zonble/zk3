@@ -1,18 +1,33 @@
 site_name: 防區狀況三生效－驗證精實案 2022 修訂版
 site_url: https://zonble.github.io/zk3/
 repo_url: https://github.com/zonble/zk3
+repo_name: zonble/zk3
+copyright: 2000 and onwards © Weizhong Yang a.k.a zonble
 site_description: …防區狀況三即將生效，目的就是要驗證精實案後，防區各部隊已經成為量小、質精、戰力強的新一代鋼鐵勁旅。
 site_author: 楊維中 a.k.a zonble
 theme:
   name: material
-  locale: "zh_TW"
+  language: "zh-TW"
   custom_dir: custom_theme/
   palette:
-    primary: blue grey
-  font: false
+    - scheme: default
+      primary: blue grey
+      # accent: pink
+      toggle:
+        name: Switch to light mode
+        icon: material/weather-sunny
+    - scheme: slate
+      primary: blue grey
+      # accent: pink
+      toggle:
+        name: Switch to dark mode
+        icon: material/weather-night
+  font:
+    text: Lato
   features:
     - navigation.sections
     - navigation.tracking
+    - navigation.instant
 
 plugins:
   - social:
@@ -32,10 +47,16 @@ extra_css:
   - css/pdf-print.css
 
 extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/zonble
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/zonble
   search:
     language: "jp"
 
 nav:
+  - "封面": "cover.md"
   - "序": "index.md"
   - "關於我": "me.md"
   - "00.md"
