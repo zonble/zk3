@@ -16,7 +16,8 @@ theme:
 plugins:
   - social:
       cards_font: Noto Sans TC
-
+markdown_extensions:
+  - footnotes
 extra_css:
   - css/extra.css
   - css/pdf-print.css
