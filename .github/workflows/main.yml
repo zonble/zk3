@@ -17,14 +17,14 @@ jobs:
           path: .cache
       - name: SetLocale
         run: |
-          udo apt-get update && sudo apt-get install tzdata locales -y && sudo locale-gen zh_TW.UTF-8
-          udo localectl set-locale LANG="zh_TW.UTF-8"
-          xport LANG="zh_TW.UTF-8"
-          udo update-locale
-          ocale -a
-          ocale
-          ocale -c -k LC_NUMERIC
-          ocalectl status
+          sudo apt-get update && sudo apt-get install tzdata locales -y && sudo locale-gen zh_TW.UTF-8
+          sudo localectl set-locale LANG="zh_TW.UTF-8"
+          export LANG="zh_TW.UTF-8"
+          sudo update-locale
+          locale -a
+          locale
+          locale -c -k LC_NUMERIC
+          localectl status
       - name: Install Dependencies
         run: |
           sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-moe-standard-song fonts-moe-standard-kai
@@ -36,7 +36,9 @@ jobs:
           pip install mkdocs-material
           pip install pillow cairosvg
           pip install mkdocs-with-pdf
+          pip install git+https://github.com/pandocker/pandoc-docx-pagebreak-py
       - name: Build Book
-      - run: |
-          mkdocs build --force --clean --verbose
+        run: |
+          mkdocs build --clean --verbose
+          sh gendoc.sh
           mkdocs gh-deploy --force --dirty --verbose
