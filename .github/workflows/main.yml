@@ -37,7 +37,7 @@ jobs:
           pip install mkdocs-material
           pip install pillow cairosvg
           pip install mkdocs-with-pdf
-          pip install git+https://github.com/pandocker/pandoc-docx-pagebreak-py
+          # pip install git+https://github.com/pandocker/pandoc-docx-pagebreak-py
       - name: Build Book
         run: |
           sh gendoc.sh
