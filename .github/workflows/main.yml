@@ -40,6 +40,5 @@ jobs:
           pip install git+https://github.com/pandocker/pandoc-docx-pagebreak-py
       - name: Build Book
         run: |
-          mkdocs build --clean --verbose
           sh gendoc.sh
-          mkdocs gh-deploy --force --dirty --verbose
+          mkdocs gh-deploy --force --clean --verbose

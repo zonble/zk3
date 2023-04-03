@@ -74,7 +74,7 @@ pandoc \
     --filter=pandoc-docx-pagebreakpy \
     --standalone \
     tmp.md \
-    -o ../site/zk3.docx
+    -o zk3.docx
 
 pandoc \
     -f markdown+hard_line_breaks \
@@ -82,7 +82,9 @@ pandoc \
     --standalone \
     --toc \
     tmp.md \
-    -o ../site/zk3.epub
+    -o zk3.epub
+
+rm tmp.md
 
 # pandoc \
 #     -f markdown+hard_line_breaks \
