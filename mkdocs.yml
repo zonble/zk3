@@ -12,7 +12,6 @@ theme:
   palette:
     - scheme: default
       primary: blue grey
-      # accent: pink
       toggle:
         name: Switch to light mode
         icon: material/weather-sunny
@@ -92,3 +91,4 @@ nav:
   - "附錄":
       - "22.md"
   - "PDF 版本": https://zonble.github.io/zk3/zk3.pdf
+  - "EPUB 版本": https://zonble.github.io/zk3/zk3.epub
