@@ -36,6 +36,7 @@ jobs:
           pip install mkdocs
           pip install mkdocs-material
           pip install pillow==9.0.0 cairosvg
+          pip install weasyprint==60
           pip install mkdocs-with-pdf
           # pip install git+https://github.com/pandocker/pandoc-docx-pagebreak-py
       - name: Build Book
