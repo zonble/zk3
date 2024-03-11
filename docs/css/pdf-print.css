@@ -1,4 +1,8 @@
 @media print {
+  body {
+    background-color: white;
+  }
+
   hr {
     display: none;
   }
@@ -53,5 +57,10 @@
 
   h6 {
     font-size: 14pt !important;
+  }
+
+  img {
+    max-width: 50%;
+    max-height: 50%;
   }
 }
