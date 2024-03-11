@@ -43,3 +43,11 @@ jobs:
           sh gendoc.sh
           mkdocs gh-deploy --force --clean --verbose
           sh indexnow.sh
+      - name: Add generated binary to artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: pdf
+          path: |
+            ./site/zk3.pdf
+          if-no-files-found: error
+        if: always()
