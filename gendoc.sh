@@ -3,6 +3,9 @@
 cd docs
 rm tmp.md
 echo "\n\n\\\newpage\n" >>tmp.md
+echo "---\n" >>tmp.md
+echo "lang: zh-TW\n" >>tmp.md
+echo "---\n" >>tmp.md
 cat index.md >>tmp.md
 echo "\n\n\\\newpage\n" >>tmp.md
 echo "\n\n\\\toc\n" >>tmp.md
@@ -67,6 +70,9 @@ cat ./-1.md >>tmp.md
 echo "\n\n\\\newpage\n" >>tmp.md
 cat ./-2.md >>tmp.md
 echo "\n\n\\\newpage\n" >>tmp.md
+cat ./-3.md >>tmp.md
+echo "\n\n\\\newpage\n" >>tmp.md
+
 
 # pandoc \
 #     -f markdown+hard_line_breaks \
@@ -83,6 +89,14 @@ pandoc \
     --toc \
     tmp.md \
     -o zk3.epub
+
+pandoc \
+    -f markdown+hard_line_breaks \
+    --metadata title="防區狀況三生效—驗證精實案" --metadata author="楊維中" \
+    --standalone \
+    --toc \
+    tmp.md \
+    -o zk3.docx
 
 rm tmp.md
 
