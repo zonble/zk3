@@ -2,11 +2,20 @@ name: build
 
 on:
   push:
-    branches:
-      - master
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -55,7 +64,7 @@ jobs:
         shell: bash
         run: |
           sh gendoc.sh
-          mkdocs gh-deploy --force --clean --verbose
+          mkdocs build --clean --verbose
           sh indexnow.sh
 
       - name: Compress and Embed Fonts into PDF
@@ -70,6 +79,10 @@ jobs:
              -dNOPAUSE -dQUIET -dBATCH \
              -sOutputFile=site/zk3.tmp.pdf site/zk3.pdf && \
           mv site/zk3.tmp.pdf site/zk3.pdf
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
 
       - name: Upload Final PDF
         uses: actions/upload-artifact@v4
@@ -78,3 +91,14 @@ jobs:
           path: ./site/zk3.pdf
           if-no-files-found: error
         if: always()
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
