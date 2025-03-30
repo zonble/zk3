@@ -74,7 +74,7 @@ jobs:
              -dCompatibilityLevel=1.4 \
              -dPDFSETTINGS=/ebook \
              -dEmbedAllFonts=true \
-             -dSubsetFonts=true \
+             -dSubsetFonts=false \
              -dCompressFonts=true \
              -dNOPAUSE -dQUIET -dBATCH \
              -sOutputFile=site/zk3.tmp.pdf site/zk3.pdf && \
