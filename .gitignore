@@ -3,3 +3,4 @@ site
 ~$*
 tmp.md
 *.docx
+.obsidian

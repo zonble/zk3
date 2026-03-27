@@ -1,0 +1,36 @@
+when:
+  - event: push
+    branch: master
+
+steps:
+  build:
+    image: python:3.12-bookworm
+    commands:
+      - apt-get update
+      - apt-get install -y --no-install-recommends pandoc libpango-1.0-0 libpangoft2-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi-dev shared-mime-info
+      - pip install --no-cache-dir -r requirements.txt
+      - mkdocs build --clean
+
+  deploy-pages:
+    image: alpine:3.20
+    environment:
+      CODEBERG_TOKEN:
+        from_secret: codeberg_token
+    commands:
+      - apk add --no-cache git rsync
+      - git config --global user.name "Woodpecker CI"
+      - git config --global user.email "ci@codeberg.org"
+      - mkdir .pages
+      - cd .pages
+      - git init
+      - git checkout -b pages
+      - git remote add origin https://oauth2:${CODEBERG_TOKEN}@codeberg.org/zonble/zk3.git
+      - cd ..
+      - rsync -a --delete site/ .pages/
+      - if [ -f .domains ]; then cp .domains .pages/.domains; fi
+      - touch .pages/.nojekyll
+      - cd .pages
+      - git add -A
+      - git diff --cached --quiet && exit 0
+      - git commit -m "Deploy from Woodpecker"
+      - git push --force origin pages
